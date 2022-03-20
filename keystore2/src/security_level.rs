@@ -57,8 +57,8 @@ use android_system_keystore2::aidl::android::system::keystore2::{
     KeyMetadata::KeyMetadata, KeyParameters::KeyParameters, ResponseCode::ResponseCode,
 };
 use anyhow::{anyhow, Context, Result};
-use std::convert::TryInto;
-use std::time::SystemTime;
+//use std::convert::TryInto;
+//use std::time::SystemTime;
 
 /// Implementation of the IKeystoreSecurityLevel Interface.
 pub struct KeystoreSecurityLevel {
@@ -405,6 +405,7 @@ impl KeystoreSecurityLevel {
             );
         }
 
+        /*
         result.push(KeyParameter {
             tag: Tag::CREATION_DATETIME,
             value: KeyParameterValue::DateTime(
@@ -421,7 +422,7 @@ impl KeystoreSecurityLevel {
                         Failed to convert epoch time.",
                     )?,
             ),
-        });
+        });*/
 
         // If there is an attestation challenge we need to get an application id.
         if params.iter().any(|kp| kp.tag == Tag::ATTESTATION_CHALLENGE) {
